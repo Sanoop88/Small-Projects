@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
-import sys
-sys.path.append('/Users/videoqa/Documents/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages')
+
 
 import requests
 import bs4
@@ -9,7 +8,7 @@ import pandas as pd
 
 import os
 import shutil
-pathh='/Users/videoqa/Desktop/Docker'
+pathh=''#your path
 try:
     shutil.rmtree(pathh)
 except:
@@ -41,20 +40,8 @@ def fetcher():
 
     newlinks=[]
 
-    for i in range(len(newlist)):
-
-        test=requests.get(newlist[i]) 
-        newsoup=bs4.BeautifulSoup(test.content,'html.parser')
-        manylinks=newsoup.find_all('a',attrs={'class':'yt-uix-tile-link'})
-        for j in range(len(manylinks)):
-            if songs[i] in manylinks[j].text.lower():
-                newlinks.append('https://www.youtube.com'+manylinks[j]['href'])
-                break
-            else:
-                pass
-
-    print (newlinks,sep='\n')
-
+    for i in newlinks:
+        print (i)
 
 
         
